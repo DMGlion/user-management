@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../services/auth.service";
-import {User} from "../../model/user";
-import {Router} from "@angular/router";
+import {AuthService} from '../../services/auth.service';
+import {User} from '../../model/user';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -18,12 +18,12 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
   }
 
-  logOut(){
+  logOut() {
     this.authService.logOut()
-      .subscribe(data =>{
+      .subscribe(data => {
         this.currentUser = null;
         this.router.navigate(['/login']);
-      },err => {
+      }, err => {
 
       });
   }
