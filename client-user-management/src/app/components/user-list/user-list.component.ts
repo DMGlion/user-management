@@ -14,7 +14,9 @@ export class UserListComponent implements OnInit {
   dataSource: MatTableDataSource<User> = new MatTableDataSource();
   displayedColumns: string[] = ['detail', 'id', 'name', 'username'];
 
+  // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  // @ts-ignore
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private authService: AuthService, private router: Router) { }

@@ -17,19 +17,21 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Override
     public User save(User user){
-        //user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setPassword(user.getPassword());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
         return user;
     }
 
     @Override
     public User findByUsername(String username){
-        return userRepository.findByUsername(username).orElse(null);
+
+        return userRepository.findByUsername(username).orElse(
+                null);
     }
 
     @Override
